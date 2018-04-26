@@ -8,7 +8,7 @@ public class Game {
 
     private int remainRollNumInFrame = 2;
 
-    private int[][] scoreboard = new int[10][2];
+    private int[][] scoreboard = new int[12][2];
 
     private int lastPins = 0;
 
@@ -28,12 +28,12 @@ public class Game {
     }
 
     private int[] calculateFrameScore() {
-        int[] frameScore = new int[10];
+        int[] frameScore = new int[12];
         for (int i = 0; i < scoreboard.length; i++) {
             frameScore[i] = scoreboard[i][0] + (scoreboard[i][1] >= 0 ? scoreboard[i][1] : 0);
         }
         for (int i = 0; i < frameScore.length; i++) {
-            if (frameScore[i] == 10) {
+            if (frameScore[i] == 10 && i < 9) {
                 if (scoreboard[i][0] == 10) {
                     frameScore[i] = frameScore[i] + scoreboard[i + 1][0];
                     if (scoreboard[i + 1][1] >= 0) {
@@ -60,7 +60,13 @@ public class Game {
     }
 
     public int frame() {
-        return frame + 1;
+        if (frame > 11) {
+            throw new RuntimeException("out of max frame size");
+        }
+        if (frame > 9)
+            return 10;
+        else
+            return frame + 1;
     }
 
     private void enterNextFrame() {

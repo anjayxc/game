@@ -117,4 +117,23 @@ public class GameTest {
         assertEquals(62, game.score());
     }
 
+    @Test
+    public void tenRoll_all10() {
+        Game game = new Game();
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        assertEquals(10, game.frame());
+        assertEquals(300, game.score());
+    }
+
 }
