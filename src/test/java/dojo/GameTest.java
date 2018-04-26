@@ -11,16 +11,16 @@ public class GameTest {
     public void oneRoll_0() {
         Game game = new Game();
         game.roll(0);
+        assertEquals(1, game.frame());
         assertEquals(0, game.score());
-        assertEquals(0, game.frame());
     }
 
     @Test
     public void oneRoll_10() {
         Game game = new Game();
         game.roll(5);
+        assertEquals(1, game.frame());
         assertEquals(5, game.score());
-        assertEquals(0, game.frame());
     }
 
     @Test
@@ -28,8 +28,8 @@ public class GameTest {
         Game game = new Game();
         game.roll(1);
         game.roll(4);
+        assertEquals(1, game.frame());
         assertEquals(5, game.score());
-        assertEquals(0, game.frame());
     }
 
     @Test
@@ -37,7 +37,7 @@ public class GameTest {
         Game game = new Game();
         game.roll(10);
         game.roll(4);
-        assertEquals(1, game.frame());
+        assertEquals(2, game.frame());
         assertEquals(18, game.score());
     }
 
@@ -47,7 +47,7 @@ public class GameTest {
         game.roll(4);
         game.roll(3);
         game.roll(5);
-        assertEquals(1, game.frame());
+        assertEquals(2, game.frame());
         assertEquals(12, game.score());
     }
 
@@ -57,7 +57,7 @@ public class GameTest {
         game.roll(4);
         game.roll(6);
         game.roll(5);
-        assertEquals(1, game.frame());
+        assertEquals(2, game.frame());
         assertEquals(20, game.score());
     }
 
@@ -67,7 +67,7 @@ public class GameTest {
         game.roll(10);
         game.roll(3);
         game.roll(5);
-        assertEquals(1, game.frame());
+        assertEquals(2, game.frame());
         assertEquals(26, game.score());
     }
 
@@ -78,8 +78,43 @@ public class GameTest {
         game.roll(4);
         game.roll(3);
         game.roll(4);
-        assertEquals(1, game.frame());
+        assertEquals(2, game.frame());
         assertEquals(14, game.score());
+    }
+
+    @Test
+    public void fourRoll_3_7_3_4() {
+        Game game = new Game();
+        game.roll(3);
+        game.roll(7);
+        game.roll(3);
+        game.roll(4);
+        assertEquals(2, game.frame());
+        assertEquals(20, game.score());
+    }
+
+    @Test
+    public void fourRoll_10_4_6_4() {
+        Game game = new Game();
+        game.roll(10);
+        game.roll(4);
+        game.roll(6);
+        game.roll(4);
+        assertEquals(3, game.frame());
+        assertEquals(38, game.score());
+    }
+
+    @Test
+    public void sixRoll_10_4_6_10_3_3() {
+        Game game = new Game();
+        game.roll(10);
+        game.roll(4);
+        game.roll(6);
+        game.roll(10);
+        game.roll(3);
+        game.roll(3);
+        assertEquals(4, game.frame());
+        assertEquals(62, game.score());
     }
 
 }
