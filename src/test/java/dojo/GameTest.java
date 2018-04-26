@@ -118,7 +118,7 @@ public class GameTest {
     }
 
     @Test
-    public void tenRoll_all10() {
+    public void tenRoll_all10_extra_10_10() {
         Game game = new Game();
         game.roll(10);
         game.roll(10);
@@ -152,6 +152,25 @@ public class GameTest {
         game.roll(5);
         assertEquals(10, game.frame());
         assertEquals(259, game.score());
+    }
+
+    @Test
+    public void nineRoll_all10_and_3_7_5() {
+        Game game = new Game();
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
+        game.roll(3);
+        game.roll(7);
+        game.roll(5);
+        assertEquals(10, game.frame());
+        assertEquals(268, game.score());
     }
 
 }
