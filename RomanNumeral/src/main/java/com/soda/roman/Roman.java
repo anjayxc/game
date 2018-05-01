@@ -37,4 +37,8 @@ public class Roman {
 
         return result;
     }
+
+    public String convertDecimalToRoman(int decimalNumeral) {
+        return "I";
+    }
 }
