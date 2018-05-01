@@ -1,6 +1,7 @@
 package com.soda.roman;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -9,7 +10,7 @@ public class Roman {
     private Map<String, Integer> dict;
 
     {
-        dict = new HashMap<>();
+        dict = new LinkedHashMap<>();
         dict.put("M", 1000);
         dict.put("CM", 900);
         dict.put("D", 500);
@@ -40,10 +41,15 @@ public class Roman {
     }
 
     public String convertDecimalToRoman(int decimalNumeral) {
+        String result = "";
         for (String key : dict.keySet()) {
-            if(dict.get(key)==decimalNumeral)
-                return key;
+            if (decimalNumeral / dict.get(key) > 0) {
+                for (int i = 0; i < decimalNumeral / dict.get(key); i++) {
+                    result += key;
+                }
+                decimalNumeral = decimalNumeral % dict.get(key);
+            }
         }
-        return null;
+        return result;
     }
 }

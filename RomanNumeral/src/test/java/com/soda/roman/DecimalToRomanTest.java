@@ -14,7 +14,6 @@ public class DecimalToRomanTest {
         roman = new Roman();
     }
 
-
     @Test
     public void convert_1() {
         assertEquals("I", convert(1));
@@ -33,6 +32,21 @@ public class DecimalToRomanTest {
     @Test
     public void convert_900() {
         assertEquals("CM", convert(900));
+    }
+
+    @Test
+    public void convert_3300() {
+        assertEquals("MMMCCC", convert(3300));
+    }
+
+    @Test
+    public void convert_2006() {
+        assertEquals("MMVI", convert(2006));
+    }
+
+    @Test
+    public void convert_1944() {
+        assertEquals("MCMXLIV", convert(1944));
     }
 
     private String convert(int decimalNumeral) {
