@@ -2,6 +2,7 @@ package com.soda.roman;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Roman {
 
@@ -39,6 +40,10 @@ public class Roman {
     }
 
     public String convertDecimalToRoman(int decimalNumeral) {
-        return "I";
+        for (String key : dict.keySet()) {
+            if(dict.get(key)==decimalNumeral)
+                return key;
+        }
+        return null;
     }
 }

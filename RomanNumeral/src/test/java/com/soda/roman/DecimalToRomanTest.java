@@ -16,8 +16,14 @@ public class DecimalToRomanTest {
 
 
     @Test
-    public void convert_I() {
+    public void convert_1() {
         assertEquals("I", roman.convertDecimalToRoman(1));
     }
+
+    @Test
+    public void convert_5() {
+        assertEquals("V", roman.convertDecimalToRoman(5));
+    }
+
 
 }
